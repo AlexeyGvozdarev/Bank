@@ -3,7 +3,7 @@ package com.example.practic
 class USD(var usd: Double = 0.0) : Account {
     var currentUSD = usd
     override fun getCurrencyName(): String {
-        return "Ruble"
+        return "Ruble !!!!!"
     }
 
     override fun addMoney(money: Double) {
