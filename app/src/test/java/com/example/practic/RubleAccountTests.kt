@@ -32,7 +32,7 @@ class RubleAccountTests {
         val masha = RubleAccaunt()
         masha.addMoney(80)
         assertTrue(masha.getBalance() == 80)
-        assertTrue(masha.withdraw(60) == 60)
+        assertTrue(masha.withdraw(60) == 20)
         assertTrue(masha.getBalance() == 20)
     }
 
