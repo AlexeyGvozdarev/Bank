@@ -1,6 +1,5 @@
 package com.example.practic
 
-import android.util.Log
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
@@ -33,7 +32,7 @@ class RubleAccountTests {
         val masha = RubleAccaunt()
         masha.addMoney(80)
         assertTrue(masha.getBalance() == 80)
-        masha.withdraw(60)
+        assertTrue(masha.withdraw(60) == 60)
         assertTrue(masha.getBalance() == 20)
     }
 
