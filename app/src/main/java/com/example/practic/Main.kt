@@ -1,14 +1,16 @@
 package com.example.practic
 
-import kotlin.math.max
-
 fun main() {
-   val alex = USD()
-   alex.addMoney(20000.0)
+   val alex = SavingAccount(2000)
+   alex.addMoney(3000)
    println(alex.getBalance())
-   alex.getMoney(8000.0)
+   alex.addMoney(1999)
    println(alex.getBalance())
-   alex.getMoney(3000.0)
-   println(alex.getBalance())
+   println(alex.getMoney(999))
+   alex.getBalance()
+//   alex.getMoney(8000)
+//   println(alex.getBalance())
+//   alex.getMoney(3000)
+//   println(alex.getBalance())
 }
 

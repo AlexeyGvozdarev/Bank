@@ -9,42 +9,42 @@ class RubleAccountTests {
     @Test
     fun add50rub() {
         val alex = RubleAccaunt()
-        alex.addMoney(50.0)
-        assertTrue(alex.getBalance() == 50.0)
+        alex.addMoney(50)
+        assertTrue(alex.getBalance() == 50)
     }
 
     @Test
     fun add50And25Rub() {
         val andrey = RubleAccaunt()
-        andrey.addMoney(50.0)
-        andrey.addMoney(25.0)
-        assertTrue(andrey.getBalance() == 75.0)
+        andrey.addMoney(50)
+        andrey.addMoney(25)
+        assertTrue(andrey.getBalance() == 75)
     }
 
     @Test
     fun addNegative50Ruble() {
         val patrik = RubleAccaunt()
-        patrik.addMoney(-50.0)
-        assertTrue(patrik.getBalance() == 0.0)
+        patrik.addMoney(-50)
+        assertTrue(patrik.getBalance() == 0)
     }
 
     @Test
     fun get20Ruble() {
         val masha = RubleAccaunt()
-        masha.addMoney(80.0)
-        assertTrue(masha.getBalance() == 80.0)
-        masha.getMoney(60.0)
+        masha.addMoney(80)
+        assertTrue(masha.getBalance() == 80)
+        masha.getMoney(60)
          Log.d("!!!", masha.getBalance().toString())
-        assertTrue(masha.getBalance() == 20.0)
+        assertTrue(masha.getBalance() == 20)
     }
 
     @Test
     fun getNegative20Ruble() {
         val masha = RubleAccaunt()
-        masha.addMoney(10.0)
-        assertTrue(masha.getBalance() == 10.0)
-        assertTrue(masha.getMoney(20.0) == 0.0)
-        assertTrue(masha.getBalance() == 10.0)
+        masha.addMoney(10)
+        assertTrue(masha.getBalance() == 10)
+        assertTrue(masha.getMoney(20) == 0)
+        assertTrue(masha.getBalance() == 10)
     }
 }
 //  создать новый тип счета.
