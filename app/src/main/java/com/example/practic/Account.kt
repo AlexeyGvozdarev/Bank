@@ -1,6 +1,6 @@
 package com.example.practic
 
-interface Account {
+interface Account {                 //ИНТЕРФЭЙС СО ВСЕМИ НЕОБХОДИМЫМИ МЕТОДОМИ ДЛЯ РАБОТЫ
     fun getCurrencyName(): String
     fun addMoney(money: Int)
     fun getBalance(): Int

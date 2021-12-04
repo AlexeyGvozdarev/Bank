@@ -5,14 +5,14 @@ import org.junit.Test
 
 class SavingAccountTest{
     @Test
-    fun getMoreThen10000() {
+    fun overDraw() {
         val user = SavingAccount(2000)
         user.addMoney(20000)
         Assert.assertTrue(user.withdraw(9000) == 11000)
         user.addMoney(5000)
         Assert.assertTrue(user.getBalance() == 16000)
-        Assert.assertTrue(user.withdraw(7000) == 0)
-        Assert.assertTrue(user.getBalance() == 16000)
+        Assert.assertTrue(user.withdraw(7000) == 9000)
+        Assert.assertTrue(user.withdraw(8000) == 0)
     }
     @Test
     fun firstAmountIsMoreThanMinBalance () {
