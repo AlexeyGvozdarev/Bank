@@ -19,8 +19,10 @@ class RubleAccaunt : Account {
 
     override fun withdraw(money: Int): Int {
         if (money > ruble) return 0
-        ruble -= money
-        return ruble
+        else ruble -= money
+
+
+        return money
     }
 
 }
