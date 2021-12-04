@@ -15,8 +15,9 @@ class SavingAccount(var minBalance: Int = 0) : Account {
         return currentCount
     }
 
-    override fun getMoney(money: Int): Int {
-        if (currentCount-money > minBalance) currentCount -=money
+    // Возвращает сумму которую сняли
+    override fun withdraw(money: Int): Int {
+        if (currentCount - money > minBalance) currentCount -= money
         return currentCount
     }
 }

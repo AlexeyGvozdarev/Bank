@@ -8,10 +8,11 @@ class SavingAccountTest{
     fun getMoreThen10000() {
         val user = SavingAccount(2000)
         user.addMoney(20000)
-        Assert.assertTrue(user.getMoney(9000) == 11000)
+        Assert.assertTrue(user.withdraw(9000) == 11000)
         user.addMoney(5000)
         Assert.assertTrue(user.getBalance() == 16000)
-        Assert.assertTrue(user.getMoney(7000) == 9000)
+        Assert.assertTrue(user.withdraw(7000) == 0)
+        Assert.assertTrue(user.getBalance() == 16000)
     }
     @Test
     fun firstAmountIsMoreThanMinBalance () {

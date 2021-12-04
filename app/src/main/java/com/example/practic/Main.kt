@@ -6,7 +6,7 @@ fun main() {
    println(alex.getBalance())
    alex.addMoney(1999)
    println(alex.getBalance())
-   println(alex.getMoney(999))
+   println(alex.withdraw(999))
    alex.getBalance()
 //   alex.getMoney(8000)
 //   println(alex.getBalance())

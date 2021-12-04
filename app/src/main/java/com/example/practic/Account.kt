@@ -4,5 +4,5 @@ interface Account {
     fun getCurrencyName(): String
     fun addMoney(money: Int)
     fun getBalance(): Int
-    fun getMoney(money: Int): Int
+    fun withdraw(money: Int): Int
 }
