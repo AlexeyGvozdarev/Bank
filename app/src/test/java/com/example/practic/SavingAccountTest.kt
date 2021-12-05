@@ -3,7 +3,7 @@ package com.example.practic
 import org.junit.Assert
 import org.junit.Test
 
-class SavingAccountTest{
+class SavingAccountTest {
     @Test
     fun overDraw() {
         val user = SavingAccount(2000)
@@ -14,11 +14,13 @@ class SavingAccountTest{
         Assert.assertTrue(user.withdraw(7000) == 9000)
         Assert.assertTrue(user.withdraw(8000) == 0)
     }
+
     @Test
-    fun firstAmountIsMoreThanMinBalance () {
+    fun firstAmountIsMoreThanMinBalance() {
         val minBalance = 2000
-        val account = SavingAccount (minBalance)
-        account.addMoney (1000 )
-        Assert.assertEquals (0, account.getBalance ())
+        val account = SavingAccount(minBalance)
+        account.addMoney(1000)
+        Assert.assertEquals(0, account.getBalance())
     }
+
 }
