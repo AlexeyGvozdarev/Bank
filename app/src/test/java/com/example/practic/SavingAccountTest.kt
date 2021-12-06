@@ -32,4 +32,15 @@ class SavingAccountTest {
         Assert.assertEquals(2, operationCount)
     }
 
+    @Test
+    fun getAccountHistoryEquals2() {
+        val account = SavingAccount(1000)
+        account.addMoney(1000)
+        account.addMoney(2000)
+        val operationCount = account.getHistoryOperationCount()
+        Assert.assertEquals(2, operationCount)
+        Assert.assertEquals(1000, account.getHistoryOperationAmount(0))
+        Assert.assertEquals(2000, account.getHistoryOperationAmount(1))
+    }
+
 }

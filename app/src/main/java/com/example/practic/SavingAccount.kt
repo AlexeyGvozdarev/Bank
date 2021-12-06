@@ -2,8 +2,14 @@ package com.example.practic
 
 class SavingAccount(var minBalance: Int = 0) : Account {
     var currentCount = 0
-    var currentHistory = mutableListOf<Int>()
     var historyCount = 0
+    var currentHistory = mutableListOf<Int>()
+
+    fun getHistoryOperationAmount(index: Int): Int{
+        val currentIndex = currentHistory[index]
+        return  currentIndex
+    }
+
 
     fun getHistoryOperationCount(): Int{
         return historyCount
