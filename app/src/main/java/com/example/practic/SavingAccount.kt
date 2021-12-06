@@ -53,15 +53,6 @@ class SavingAccount(var minBalance: Int = 0) : Account {
     }
 
     override fun getHistory(): List<Int> {
-        TODO("Not yet implemented")
+        return currentHistory
     }
 }
-//override fun addMoney(money: Int) {
-//    if (money < minBalance && currentCount == 0) return
-//    else currentCount += money
-//}
-//override fun withdraw(money: Int): Int {
-//    if (currentCount - money > minBalance) currentCount -= money
-//    else return 0
-//    return currentCount
-//}
