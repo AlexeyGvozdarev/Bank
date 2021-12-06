@@ -1,8 +1,6 @@
 package com.example.practic
 
 class SavingAccount(var minBalance: Int = 0) : Account {
-    var currentCount = 0
-    var historyCount = 0
     var succesOperationSum = 0
     var currentHistory = mutableListOf<Int>()
 
@@ -17,7 +15,7 @@ class SavingAccount(var minBalance: Int = 0) : Account {
 
 
     fun getHistoryOperationCount(): Int{
-        return historyCount
+        return currentHistory.size
     }
 
     override fun getCurrencyName(): String {
@@ -25,31 +23,27 @@ class SavingAccount(var minBalance: Int = 0) : Account {
     }
 
     override fun addMoney(money: Int) {
-        if (money < minBalance && currentCount == 0) {
+        if (money < minBalance && currentHistory.sum() == 0) {
             currentHistory.add(0)
             return
         } else {
-            currentCount += money
             currentHistory.add(money)
-            historyCount++
             succesOperationSum += money
         }
     }
 
     override fun getBalance(): Int {
-        return currentCount
+        return currentHistory.sum()
     }
 
     override fun withdraw(money: Int): Int {
-        if (currentCount - money > minBalance) {
-            currentCount -= money
-            currentHistory.add(money)
-            historyCount++
+        if (currentHistory.sum() - money > minBalance) {
+            currentHistory.add(-money)
         } else {
             currentHistory.add(0)
             return 0
         }
-        return currentCount
+        return currentHistory.sum()
     }
 
     override fun getHistory(): List<Int> {
