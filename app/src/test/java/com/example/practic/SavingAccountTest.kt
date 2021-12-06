@@ -41,6 +41,7 @@ class SavingAccountTest {
         Assert.assertEquals(2, operationCount)
         Assert.assertEquals(1000, account.getHistoryOperationAmount(0))
         Assert.assertEquals(2000, account.getHistoryOperationAmount(1))
+        Assert.assertTrue(account.succesfulyOperationSum() == 3000)
     }
 
 }

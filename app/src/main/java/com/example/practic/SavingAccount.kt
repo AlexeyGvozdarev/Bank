@@ -3,7 +3,12 @@ package com.example.practic
 class SavingAccount(var minBalance: Int = 0) : Account {
     var currentCount = 0
     var historyCount = 0
+    var succesOperationSum = 0
     var currentHistory = mutableListOf<Int>()
+
+    fun succesfulyOperationSum(): Int{
+        return succesOperationSum
+    }
 
     fun getHistoryOperationAmount(index: Int): Int{
         val currentIndex = currentHistory[index]
@@ -27,6 +32,7 @@ class SavingAccount(var minBalance: Int = 0) : Account {
             currentCount += money
             currentHistory.add(money)
             historyCount++
+            succesOperationSum += money
         }
     }
 
