@@ -5,4 +5,5 @@ interface Account {                 //ИНТЕРФЭЙС СО ВСЕМИ НЕО�
     fun addMoney(money: Int)
     fun getBalance(): Int
     fun withdraw(money: Int): Int
+    fun getHistory(): List<Int>
 }

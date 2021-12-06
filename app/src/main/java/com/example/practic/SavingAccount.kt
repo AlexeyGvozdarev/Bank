@@ -2,17 +2,25 @@ package com.example.practic
 
 class SavingAccount(var minBalance: Int = 0) : Account {
     var currentCount = 0
+    var currentHistory = mutableListOf<Int>()
+    var historyCount = 0
+
+    fun getHistoryOperationCount(): Int{
+        return historyCount
+    }
+
     override fun getCurrencyName(): String {
         return "Ruble !!!!!"
     }
 
     override fun addMoney(money: Int) {
         if (money < minBalance && currentCount == 0) {
-            History.ADDHISTORY.historyList.add(0)
+            currentHistory.add(0)
             return
         } else {
             currentCount += money
-            History.ADDHISTORY.historyList.add(money)
+            currentHistory.add(money)
+            historyCount++
         }
     }
 
@@ -21,14 +29,19 @@ class SavingAccount(var minBalance: Int = 0) : Account {
     }
 
     override fun withdraw(money: Int): Int {
-        if (currentCount - money > minBalance){
+        if (currentCount - money > minBalance) {
             currentCount -= money
-            History.DRAWHISTORY.historyList.add(money)
-        } else{
-            History.DRAWHISTORY.historyList.add(0)
+            currentHistory.add(money)
+            historyCount++
+        } else {
+            currentHistory.add(0)
             return 0
         }
         return currentCount
+    }
+
+    override fun getHistory(): List<Int> {
+        TODO("Not yet implemented")
     }
 }
 //override fun addMoney(money: Int) {

@@ -10,8 +10,9 @@ fun main() {
    println(alex.withdraw(999))
    println(alex.withdraw(3000))
    alex.getBalance()
-   println(History.ADDHISTORY.historyList)
-   println(History.DRAWHISTORY.historyList)
+
+   println(alex.currentHistory)
+
 //   alex.getMoney(8000)
 //   println(alex.getBalance())
 //   alex.getMoney(3000)
