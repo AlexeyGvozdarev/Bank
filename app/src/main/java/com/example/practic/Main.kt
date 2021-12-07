@@ -12,6 +12,7 @@ fun main() {
    alex.getBalance()
 
    println(alex.currentHistory)
+   println(alex.getHistoryOperationType(4))
 
 //   alex.getMoney(8000)
 //   println(alex.getBalance())
