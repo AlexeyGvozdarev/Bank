@@ -29,4 +29,20 @@ class RubleAccaunt : Account {
         TODO("Not yet implemented")
     }
 
+    override fun getHistoryOperationCount(): Int {
+        TODO("Not yet implemented")
+    }
+
+    override fun getHistoryOperationAmount(index: Int): Int {
+        TODO("Not yet implemented")
+    }
+
+    override fun succesfulyOperationSum(): Int {
+        TODO("Not yet implemented")
+    }
+
+    override fun getHistoryOperationType(index: Int): OperationType {
+        TODO("Not yet implemented")
+    }
+
 }

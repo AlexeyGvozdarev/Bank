@@ -8,10 +8,10 @@ class SavingAccountTest {
     fun overDraw() {
         val user = SavingAccount(2000)
         user.addMoney(20000)
-        Assert.assertTrue(user.withdraw(9000) == 11000)
+        Assert.assertTrue(user.withdraw(9000) == 9000)
         user.addMoney(5000)
         Assert.assertTrue(user.getBalance() == 16000)
-        Assert.assertTrue(user.withdraw(7000) == 9000)
+        Assert.assertTrue(user.withdraw(7000) == 7000)
         Assert.assertTrue(user.withdraw(8000) == 0)
     }
 
@@ -42,7 +42,7 @@ class SavingAccountTest {
         Assert.assertEquals(1000, account.getHistoryOperationAmount(0))
         Assert.assertEquals(2000, account.getHistoryOperationAmount(1))
         Assert.assertTrue(account.succesfulyOperationSum() == 3000)
-
+        Assert.assertTrue(account.getHistoryOperationType(1) == OperationType.ADD_MONEY)
     }
 
 }

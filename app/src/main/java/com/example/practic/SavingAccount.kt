@@ -51,7 +51,7 @@ class SavingAccount(var minBalance: Int = 0) : Account {
             currentOperationType.add(OperationType.WITHDRAW_FAIL)
             return 0
         }
-        return currentHistory.sum()
+        return money
     }
 
     override fun getHistory(): List<Int> {
