@@ -6,4 +6,8 @@ interface Account {                 //ИНТЕРФЭЙС СО ВСЕМИ НЕО�
     fun getBalance(): Int
     fun withdraw(money: Int): Int
     fun getHistory(): List<Int>
+    fun getHistoryOperationCount(): Int
+    fun getHistoryOperationAmount(index: Int): Int
+    fun succesfulyOperationSum(): Int
+    fun getHistoryOperationType(index: Int): OperationType
 }

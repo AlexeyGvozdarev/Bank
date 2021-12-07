@@ -4,22 +4,22 @@ class SavingAccount(var minBalance: Int = 0) : Account {
     var currentHistory = mutableListOf<Int>()
     var currentOperationType = mutableListOf<OperationType>()
 
-    fun getHistoryOperationType(index: Int): OperationType {
+    override fun getHistoryOperationType(index: Int): OperationType {
         val currentIndex = currentOperationType[index]
         return currentIndex
     }
 
-    fun succesfulyOperationSum(): Int {
+    override fun succesfulyOperationSum(): Int {
         return currentHistory.sum()
     }
 
-    fun getHistoryOperationAmount(index: Int): Int {
+    override fun getHistoryOperationAmount(index: Int): Int {
         val currentIndex = currentHistory[index]
         return currentIndex
     }
 
 
-    fun getHistoryOperationCount(): Int {
+    override fun getHistoryOperationCount(): Int {
         return currentHistory.size
     }
 
