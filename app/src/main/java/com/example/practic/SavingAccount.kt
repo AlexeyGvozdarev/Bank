@@ -1,11 +1,10 @@
 package com.example.practic
 
 class SavingAccount(var minBalance: Int = 0) : Account {
-    var succesOperationSum = 0
     var currentHistory = mutableListOf<Int>()
 
     fun succesfulyOperationSum(): Int{
-        return succesOperationSum
+        return currentHistory.sum()
     }
 
     fun getHistoryOperationAmount(index: Int): Int{
@@ -28,7 +27,6 @@ class SavingAccount(var minBalance: Int = 0) : Account {
             return
         } else {
             currentHistory.add(money)
-            succesOperationSum += money
         }
     }
 
