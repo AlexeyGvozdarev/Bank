@@ -25,7 +25,7 @@ class RubleAccaunt : Account {
         return money
     }
 
-    override fun getHistory(): List<Int> {
+    override fun getHistory(): MutableList<HistoryItem> {
         TODO("Not yet implemented")
     }
 
