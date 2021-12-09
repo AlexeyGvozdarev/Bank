@@ -20,7 +20,7 @@ class SavingAccount(var minBalance: Int = 0) : Account {
     }
 
     override fun getCurrencyName(): String {
-        return "Ruble !!!!!"
+        return "Dollar"
     }
 
     override fun addMoney(money: Int) {

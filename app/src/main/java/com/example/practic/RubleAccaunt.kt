@@ -1,48 +1,49 @@
 package com.example.practic
 
 class RubleAccaunt : Account {
-    var ruble = 0
+    var rubleList = mutableListOf<HistoryItem>()
+
     override fun getCurrencyName(): String {
         return "Ruble"
     }
 
     override fun addMoney(money: Int) {
-        if (money < 0) return
-
-        ruble += money
+        if (money < 0) {
+            rubleList.add(HistoryItem(OperationType.ADD_MONEY_FAIL, 0))
+            return
+        } else rubleList.add(HistoryItem(OperationType.ADD_MONEY, money))
     }
 
     override fun getBalance(): Int {
-
-        return ruble
+        return rubleList.sumOf { it.amount }
     }
 
     override fun withdraw(money: Int): Int {
-        if (money > ruble) return 0
-        else ruble -= money
-
-
+        if (money > rubleList.sumOf { it.amount }) {
+            rubleList.add(HistoryItem(OperationType.WITHDRAW_FAIL, 0))
+            return 0
+        } else rubleList.add(HistoryItem(OperationType.WITHDRAW_MONEY, -money))
         return money
     }
 
     override fun getHistory(): MutableList<HistoryItem> {
-        TODO("Not yet implemented")
+        return rubleList
     }
 
     override fun getHistoryOperationCount(): Int {
-        TODO("Not yet implemented")
+        return rubleList.size
     }
 
     override fun getHistoryOperationAmount(index: Int): Int {
-        TODO("Not yet implemented")
+        return rubleList[index].amount
     }
 
     override fun succesfulyOperationSum(): Int {
-        TODO("Not yet implemented")
+        return rubleList.sumOf { it.amount }
     }
 
     override fun getHistoryOperationType(index: Int): OperationType {
-        TODO("Not yet implemented")
+        return rubleList[index].type
     }
 
 }
