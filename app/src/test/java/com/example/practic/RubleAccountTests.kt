@@ -1,5 +1,6 @@
 package com.example.practic
 
+import android.graphics.Path
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
@@ -10,6 +11,7 @@ class RubleAccountTests {
         val alex = RubleAccaunt()
         alex.addMoney(50)
         assertTrue(alex.getBalance() == 50)
+        assertTrue(alex.getHistoryOperationType(0) == OperationType.ADD_MONEY)
     }
 
     @Test
@@ -18,6 +20,7 @@ class RubleAccountTests {
         andrey.addMoney(50)
         andrey.addMoney(25)
         assertTrue(andrey.getBalance() == 75)
+        assertTrue(andrey.getHistoryOperationAmount(1) == 25)
     }
 
     @Test
@@ -25,6 +28,7 @@ class RubleAccountTests {
         val patrik = RubleAccaunt()
         patrik.addMoney(-50)
         assertTrue(patrik.getBalance() == 0)
+        assertTrue(patrik.getHistoryOperationType(0) == OperationType.ADD_MONEY_FAIL)
     }
 
     @Test
@@ -43,6 +47,8 @@ class RubleAccountTests {
         assertTrue(masha.getBalance() == 10)
         assertTrue(masha.withdraw(20) == 0)
         assertTrue(masha.getBalance() == 10)
+        assertTrue(masha.getHistoryOperationType(1) == OperationType.WITHDRAW_FAIL)
+        assertTrue(masha.getHistoryOperationAmount(1) == 0)
     }
 }
 //  создать новый тип счета.
