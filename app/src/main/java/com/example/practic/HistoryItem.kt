@@ -1,3 +1,3 @@
 package com.example.practic
 
- class HistoryItem(var type: OperationType, var amount: Int)
+ class HistoryItem(var type: OperationType, var amount: Int,var place: OperationPlace)

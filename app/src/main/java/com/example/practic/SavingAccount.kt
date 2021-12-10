@@ -23,12 +23,12 @@ class SavingAccount(var minBalance: Int = 0) : Account {
         return "Dollar"
     }
 
-    override fun addMoney(money: Int) {
+    override fun addMoney(money: Int, place: OperationPlace) {
         if (money < minBalance && currentOperationType.sumOf { it.amount } == 0) {
-            currentOperationType.add(HistoryItem(OperationType.ADD_MONEY_FAIL, 0))
+            currentOperationType.add(HistoryItem(OperationType.ADD_MONEY_FAIL, 0,place))
             return
         } else {
-            currentOperationType.add(HistoryItem(OperationType.ADD_MONEY, money))
+            currentOperationType.add(HistoryItem(OperationType.ADD_MONEY, money,place))
         }
     }
 
@@ -36,11 +36,11 @@ class SavingAccount(var minBalance: Int = 0) : Account {
         return currentOperationType.sumOf { it.amount }
     }
 
-    override fun withdraw(money: Int): Int {
+    override fun withdraw(money: Int, place: OperationPlace): Int {
         if (currentOperationType.sumOf { it.amount } - money > minBalance) {
-            currentOperationType.add(HistoryItem(OperationType.WITHDRAW_MONEY, -money))
+            currentOperationType.add(HistoryItem(OperationType.WITHDRAW_MONEY, -money,place))
         } else {
-            currentOperationType.add(HistoryItem(OperationType.WITHDRAW_FAIL, 0))
+            currentOperationType.add(HistoryItem(OperationType.WITHDRAW_FAIL, 0,place))
             return 0
         }
         return money
@@ -48,5 +48,8 @@ class SavingAccount(var minBalance: Int = 0) : Account {
 
     override fun getHistory(): MutableList<HistoryItem> {
         return currentOperationType
+    }
+    override fun getHistoryOperationPlace(index: Int): OperationPlace {
+        return currentOperationType[index].place
     }
 }

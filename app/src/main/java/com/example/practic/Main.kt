@@ -5,13 +5,13 @@ import android.telephony.SignalStrength
 fun main() {
     val alex = SavingAccount(2000)
 
-    alex.addMoney(1000)
-    alex.addMoney(3000)
+    alex.addMoney(1000,OperationPlace.BANK)
+    alex.addMoney(3000,OperationPlace.BANKOMAT)
     println(alex.getBalance())
-    alex.addMoney(1999)
+    alex.addMoney(1999,OperationPlace.BANK)
     println(alex.getBalance())
-    println(alex.withdraw(999))
-    println(alex.withdraw(3000))
+    println(alex.withdraw(999,OperationPlace.BANK))
+    println(alex.withdraw(3000,OperationPlace.BANKOMAT))
     alex.getBalance()
 
 

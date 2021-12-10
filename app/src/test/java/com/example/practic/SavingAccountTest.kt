@@ -7,27 +7,27 @@ class SavingAccountTest {
     @Test
     fun overDraw() {
         val user = SavingAccount(2000)
-        user.addMoney(20000)
-        Assert.assertTrue(user.withdraw(9000) == 9000)
-        user.addMoney(5000)
+        user.addMoney(20000,OperationPlace.BANKOMAT)
+        Assert.assertTrue(user.withdraw(9000,OperationPlace.BANK) == 9000)
+        user.addMoney(5000,OperationPlace.BANKOMAT)
         Assert.assertTrue(user.getBalance() == 16000)
-        Assert.assertTrue(user.withdraw(7000) == 7000)
-        Assert.assertTrue(user.withdraw(8000) == 0)
+        Assert.assertTrue(user.withdraw(7000,OperationPlace.BANK) == 7000)
+        Assert.assertTrue(user.withdraw(8000,OperationPlace.BANK) == 0)
     }
 
     @Test
     fun firstAmountIsMoreThanMinBalance() {
         val minBalance = 2000
         val account = SavingAccount(minBalance)
-        account.addMoney(1000)
+        account.addMoney(1000,OperationPlace.BANK)
         Assert.assertEquals(0, account.getBalance())
     }
 
     @Test
     fun accountHistoryCountEquals2() {
         val account = SavingAccount(1000)
-        account.addMoney(1000)
-        account.addMoney(2000)
+        account.addMoney(1000,OperationPlace.BANK)
+        account.addMoney(2000,OperationPlace.BANKOMAT)
         val operationCount = account.getHistoryOperationCount()
         Assert.assertEquals(2, operationCount)
     }
@@ -35,14 +35,15 @@ class SavingAccountTest {
     @Test
     fun getAccountHistoryEquals2() {
         val account = SavingAccount(1000)
-        account.addMoney(1000)
-        account.addMoney(2000)
+        account.addMoney(1000,OperationPlace.BANK)
+        account.addMoney(2000,OperationPlace.BANKOMAT)
         val operationCount = account.getHistoryOperationCount()
         Assert.assertEquals(2, operationCount)
         Assert.assertEquals(1000, account.getHistoryOperationAmount(0))
         Assert.assertEquals(2000, account.getHistoryOperationAmount(1))
         Assert.assertTrue(account.succesfulyOperationSum() == 3000)
         Assert.assertTrue(account.getHistoryOperationType(1) == OperationType.ADD_MONEY)
+        Assert.assertTrue(account.getHistoryOperationPlace(1) == OperationPlace.BANKOMAT)
     }
 
 }
