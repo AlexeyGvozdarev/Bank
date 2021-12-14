@@ -1,14 +1,15 @@
 package com.example.practic
 
-data class Bank(var bank: MutableList<Account> = mutableListOf()) {
-   // var sum = 0
+    open class Bank() {
+
+     var bank: MutableList<Account> = mutableListOf()
 
     fun addAccaunt(accaunt: Account){
         bank.add(accaunt)
-        //sum += accaunt.getBalance()
     }
     fun getTotalBalance (): Int{
-       var sum = bank.sumOf { it.getBalance() }
+       val sum = bank.sumOf { it.getBalance() }
         return sum
     }
+
 }

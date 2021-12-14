@@ -16,26 +16,20 @@ fun main() {
     masha.addMoney(10000)
     andrey.addMoney(20000)
 
+    println(alex.currentOperationType.map { it.amount }.sum())
+    println(alex.currentOperationType.map { it.amount }.get(index = 1))
+    println(alex.currentOperationType.map { it.type }.get(index = 1))
+
     val bankAccount1 = Bank()
 
     bankAccount1.addAccaunt(alex)
     bankAccount1.addAccaunt(masha)
     bankAccount1.addAccaunt(andrey)
 
-
-
-
-    println(alex.currentOperationType.map { it.amount }.sum())
-    println(alex.currentOperationType.map { it.amount }.get(index = 1))
-    println(alex.currentOperationType.map { it.type }.get(index = 1))
-
     println("сумма аккаунтов = ${bankAccount1.getTotalBalance()}")
 
-
-
-
-
-
+    val cardAlex = BankCard()
+    cardAlex.issueCard("alexCard",alex)
 }
 
 
