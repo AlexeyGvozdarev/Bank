@@ -1,6 +1,5 @@
 package com.example.practic
 
-import android.graphics.Path
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
@@ -9,17 +8,17 @@ class RubleAccountTests {
     @Test
     fun add50rub() {
         val alex = RubleAccaunt()
-        alex.addMoney(50,OperationPlace.BANK)
+        alex.addMoney(50)
         assertTrue(alex.getBalance() == 50)
         assertTrue(alex.getHistoryOperationType(0) == OperationType.ADD_MONEY)
-        assertTrue(alex.getHistoryOperationPlace(0) == OperationPlace.BANK)
+        assertTrue(alex.getHistoryOperationPlace(0) == OperationPlace.ATM)
     }
 
     @Test
     fun add50And25Rub() {
         val andrey = RubleAccaunt()
-        andrey.addMoney(50,OperationPlace.BANKOMAT)
-        andrey.addMoney(25,OperationPlace.BANK)
+        andrey.addMoney(50)
+        andrey.addMoney(25)
         assertTrue(andrey.getBalance() == 75)
         assertTrue(andrey.getHistoryOperationAmount(1) == 25)
     }
@@ -35,7 +34,7 @@ class RubleAccountTests {
     @Test
     fun get20Ruble() {
         val masha = RubleAccaunt()
-        masha.addMoney(80,OperationPlace.BANK)
+        masha.addMoney(80)
         assertTrue(masha.getBalance() == 80)
         assertTrue(masha.withdraw(60,OperationPlace.BANKOMAT) == 60)
         assertTrue(masha.getBalance() == 20)
@@ -44,7 +43,7 @@ class RubleAccountTests {
     @Test
     fun getNegative20Ruble() {
         val masha = RubleAccaunt()
-        masha.addMoney(10,OperationPlace.BANK)
+        masha.addMoney(10)
         assertTrue(masha.getBalance() == 10)
         assertTrue(masha.withdraw(20,OperationPlace.BANKOMAT) == 0)
         assertTrue(masha.getBalance() == 10)

@@ -52,4 +52,6 @@ class SavingAccount(var minBalance: Int = 0) : Account {
     override fun getHistoryOperationPlace(index: Int): OperationPlace {
         return currentOperationType[index].place
     }
+
+
 }
