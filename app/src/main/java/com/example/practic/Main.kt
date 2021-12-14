@@ -34,7 +34,10 @@ fun main() {
     card.issueCard("mashaCard",masha)
     card.issueCard("andreyCard",andrey)
 
-    println(card.cardList)
+    println(card.cardList.getValue("andreyCard"))
+    println(card.cardList.getValue("mashaCard"))
+    println(card.cardList.getValue("alexCard"))
+
 }
 
 
