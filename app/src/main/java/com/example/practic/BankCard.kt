@@ -1,11 +1,9 @@
 package com.example.practic
 
-    class BankCard {
-    var cardAccaunt = mutableMapOf<String, Account>()
-
-       fun issueCard(cardName: String,account: Account) {
-           cardAccaunt.put(cardName,account)
-       }
-
+open class BankCard {
+      open var cardList: MutableMap<String,Account> = mutableMapOf()
+      override fun toString(): String {
+            return "BankCard(cardList=$cardList)"
+      }
 
 }

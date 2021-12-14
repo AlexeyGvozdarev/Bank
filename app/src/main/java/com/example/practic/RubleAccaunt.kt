@@ -50,4 +50,8 @@ class RubleAccaunt : Account {
         return rubleList[index].place
     }
 
+    override fun toString(): String {
+        return "RubleAccaunt(rubleList=$rubleList)"
+    }
+
 }

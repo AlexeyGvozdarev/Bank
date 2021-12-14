@@ -28,8 +28,13 @@ fun main() {
 
     println("сумма аккаунтов = ${bankAccount1.getTotalBalance()}")
 
-    val cardAlex = BankCard()
-    cardAlex.issueCard("alexCard",alex)
+   val card = Bank()
+
+    card.issueCard("alexCard",alex)
+    card.issueCard("mashaCard",masha)
+    card.issueCard("andreyCard",andrey)
+
+    println(card.cardList)
 }
 
 

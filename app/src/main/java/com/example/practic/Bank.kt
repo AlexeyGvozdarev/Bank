@@ -1,6 +1,7 @@
 package com.example.practic
 
-    open class Bank() {
+class Bank: BankCard() {
+    override var cardList: MutableMap<String,Account> = mutableMapOf()
 
      var bank: MutableList<Account> = mutableListOf()
 
@@ -10,6 +11,14 @@ package com.example.practic
     fun getTotalBalance (): Int{
        val sum = bank.sumOf { it.getBalance() }
         return sum
+    }
+    fun issueCard (cardName: String,accaunt: Account): Account? {
+
+      return  cardList.put(cardName,accaunt)
+    }
+
+    override fun toString(): String {
+        return "Bank(cardList=$cardList, bank=$bank)"
     }
 
 }

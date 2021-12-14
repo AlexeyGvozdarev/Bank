@@ -53,5 +53,9 @@ class SavingAccount(var minBalance: Int = 0) : Account {
         return currentOperationType[index].place
     }
 
+    override fun toString(): String {
+        return "SavingAccount(minBalance=$minBalance, currentOperationType=$currentOperationType)"
+    }
+
 
 }

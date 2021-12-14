@@ -6,4 +6,8 @@ enum class OperationType {
     ADD_MONEY_FAIL,
     WITHDRAW_FAIL;
 
+    override fun toString(): String {
+        return "OperationType()"
+    }
+
 }
