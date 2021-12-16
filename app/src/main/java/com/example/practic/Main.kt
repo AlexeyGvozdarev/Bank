@@ -6,12 +6,12 @@ fun main() {
     val andrey = RubleAccaunt()
 
     alex.addMoney(1000)
-    alex.addMoney(3000,OperationPlace.BANKOMAT)
+    alex.addMoney(3000, OperationPlace.BANKOMAT)
     println(alex.getBalance())
     alex.addMoney(1999)
     println(alex.getBalance())
     println(alex.withdraw(999))
-    println(alex.withdraw(3000,OperationPlace.BANKOMAT))
+    println(alex.withdraw(3000, OperationPlace.BANKOMAT))
     alex.getBalance()
     masha.addMoney(10000)
     andrey.addMoney(20000)
@@ -28,15 +28,12 @@ fun main() {
 
     println("сумма аккаунтов = ${bankAccount1.getTotalBalance()}")
 
-   val card = Bank()
+    val card_1 = bankAccount1.issueCard()
+    println(card_1)
+    card_1.cardWithdraw(3000)
+    println(card_1.getCardBalance())
+    println("сумма аккаунтов = ${bankAccount1.getTotalBalance()}")
 
-    card.issueCard("alexCard",alex)
-    card.issueCard("mashaCard",masha)
-    card.issueCard("andreyCard",andrey)
-
-    println(card.cardList.getValue("andreyCard"))
-    println(card.cardList.getValue("mashaCard"))
-    println(card.cardList.getValue("alexCard"))
 
 }
 

@@ -1,24 +1,30 @@
 package com.example.practic
 
-class Bank: BankCard() {
-    override var cardList: MutableMap<String,Account> = mutableMapOf()
+import kotlin.math.max
 
-     var bank: MutableList<Account> = mutableListOf()
+open class Bank {
 
-    fun addAccaunt(accaunt: Account){
+    var bank: MutableList<Account> = mutableListOf()
+
+
+    fun addAccaunt(accaunt: Account) {
         bank.add(accaunt)
     }
-    fun getTotalBalance (): Int{
-       val sum = bank.sumOf { it.getBalance() }
+
+    fun getTotalBalance(): Int {
+        val sum = bank.sumOf { it.getBalance() }
         return sum
     }
-    fun issueCard (cardName: String,accaunt: Account): Account? {
 
-      return  cardList.put(cardName,accaunt)
+    fun issueCard(): BankCard {
+        val cardName = bank.maxByOrNull { it.getBalance() }
+        val card = BankCard(cardName)
+        return card
     }
 
     override fun toString(): String {
-        return "Bank(cardList=$cardList, bank=$bank)"
+        return "Bank(bank=$bank)"
     }
+
 
 }
