@@ -41,19 +41,19 @@ class SavingAccountTest {
         Assert.assertEquals(2, operationCount)
         Assert.assertEquals(1000, account.getHistoryOperationAmount(0))
         Assert.assertEquals(2000, account.getHistoryOperationAmount(1))
-        Assert.assertTrue(account.succesfulyOperationSum() == 3000)
+        Assert.assertTrue(account.successfullyOperationSum() == 3000)
         Assert.assertTrue(account.getHistoryOperationType(1) == OperationType.ADD_MONEY)
         Assert.assertTrue(account.getHistoryOperationPlace(1) == OperationPlace.BANKOMAT)
     }
     @Test
     fun getTotalBalanceEquals(){
         val acc1 = SavingAccount(1000)
-        val acc2 = RubleAccaunt()
+        val acc2 = RubleAccount()
         val acc3 = Bank()
         acc1.addMoney(2000)
         acc2.addMoney(3000)
-        acc3.addAccaunt(acc1)
-        acc3.addAccaunt(acc2)
+        acc3.addAccount(acc1)
+        acc3.addAccount(acc2)
 
         Assert.assertTrue(acc3.getTotalBalance() == 5000)
     }

@@ -1,13 +1,13 @@
 package com.example.practic
 
-class SavingAccount(var minBalance: Int = 0) : Account {
+class SavingAccount(private var minBalance: Int = 0) : Account {
     var currentOperationType = mutableListOf<HistoryItem>()
 
     override fun getHistoryOperationType(index: Int): OperationType {
         return currentOperationType[index].type
     }
 
-    override fun succesfulyOperationSum(): Int {
+    override fun successfullyOperationSum(): Int {
         return currentOperationType.sumOf { it.amount }
     }
 

@@ -7,7 +7,7 @@ class RubleAccountTests {
 
     @Test
     fun add50rub() {
-        val alex = RubleAccaunt()
+        val alex = RubleAccount()
         alex.addMoney(50)
         assertTrue(alex.getBalance() == 50)
         assertTrue(alex.getHistoryOperationType(0) == OperationType.ADD_MONEY)
@@ -16,7 +16,7 @@ class RubleAccountTests {
 
     @Test
     fun add50And25Rub() {
-        val andrey = RubleAccaunt()
+        val andrey = RubleAccount()
         andrey.addMoney(50)
         andrey.addMoney(25)
         assertTrue(andrey.getBalance() == 75)
@@ -25,7 +25,7 @@ class RubleAccountTests {
 
     @Test
     fun addNegative50Ruble() {
-        val patrik = RubleAccaunt()
+        val patrik = RubleAccount()
         patrik.addMoney(-50,OperationPlace.BANKOMAT)
         assertTrue(patrik.getBalance() == 0)
         assertTrue(patrik.getHistoryOperationType(0) == OperationType.ADD_MONEY_FAIL)
@@ -33,7 +33,7 @@ class RubleAccountTests {
 
     @Test
     fun get20Ruble() {
-        val masha = RubleAccaunt()
+        val masha = RubleAccount()
         masha.addMoney(80)
         assertTrue(masha.getBalance() == 80)
         assertTrue(masha.withdraw(60,OperationPlace.BANKOMAT) == 60)
@@ -42,7 +42,7 @@ class RubleAccountTests {
 
     @Test
     fun getNegative20Ruble() {
-        val masha = RubleAccaunt()
+        val masha = RubleAccount()
         masha.addMoney(10)
         assertTrue(masha.getBalance() == 10)
         assertTrue(masha.withdraw(20,OperationPlace.BANKOMAT) == 0)

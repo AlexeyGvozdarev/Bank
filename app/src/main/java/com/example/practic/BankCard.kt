@@ -1,17 +1,15 @@
 package com.example.practic
 
-class BankCard(var account: Account?) : Bank() {
+class BankCard(private var account: Account?)  {
 
     fun cardWithdraw(money: Int): Int {
 
         account?.withdraw(money, OperationPlace.BANKOMAT)
-        bank.remove(account)
-        account?.let { bank.add(it) }
         return money
     }
 
     fun getCardBalance(): Int? {
-        return account?.succesfulyOperationSum()
+        return account?.successfullyOperationSum()
     }
 
     override fun toString(): String {

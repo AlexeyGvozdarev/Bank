@@ -3,7 +3,7 @@ package com.example.practic
 fun main() {
     val alex = SavingAccount(2000)
     val masha = SavingAccount(2000)
-    val andrey = RubleAccaunt()
+    val andrey = RubleAccount()
 
     alex.addMoney(1000)
     alex.addMoney(3000, OperationPlace.BANKOMAT)
@@ -22,16 +22,16 @@ fun main() {
 
     val bankAccount1 = Bank()
 
-    bankAccount1.addAccaunt(alex)
-    bankAccount1.addAccaunt(masha)
-    bankAccount1.addAccaunt(andrey)
+    bankAccount1.addAccount(alex)
+    bankAccount1.addAccount(masha)
+    bankAccount1.addAccount(andrey)
 
     println("сумма аккаунтов = ${bankAccount1.getTotalBalance()}")
 
-    val card_1 = bankAccount1.issueCard()
-    println(card_1)
-    card_1.cardWithdraw(3000)
-    println(card_1.getCardBalance())
+    val card1 = bankAccount1.issueCard()
+    println(card1)
+    card1.cardWithdraw(3000)
+    println(card1.getCardBalance())
     println("сумма аккаунтов = ${bankAccount1.getTotalBalance()}")
 
 

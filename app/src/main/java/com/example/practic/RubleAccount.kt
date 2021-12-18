@@ -1,7 +1,8 @@
 package com.example.practic
 
-class RubleAccaunt : Account {
+class RubleAccount : Account {
     var rubleList = mutableListOf<HistoryItem>()
+    private set
 
     override fun getCurrencyName(): String {
         return "Ruble"
@@ -38,7 +39,7 @@ class RubleAccaunt : Account {
         return rubleList[index].amount
     }
 
-    override fun succesfulyOperationSum(): Int {
+    override fun successfullyOperationSum(): Int {
         return rubleList.sumOf { it.amount }
     }
 
@@ -51,7 +52,7 @@ class RubleAccaunt : Account {
     }
 
     override fun toString(): String {
-        return "RubleAccaunt(rubleList=$rubleList)"
+        return "RubleAccount(rubleList=$rubleList)"
     }
 
 }

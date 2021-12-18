@@ -8,7 +8,7 @@ interface Account {                 //ИНТЕРФЭЙС СО ВСЕМИ НЕО�
     fun getHistory(): MutableList<HistoryItem>
     fun getHistoryOperationCount(): Int
     fun getHistoryOperationAmount(index: Int): Int
-    fun succesfulyOperationSum(): Int
+    fun successfullyOperationSum(): Int
     fun getHistoryOperationType(index: Int): OperationType
     fun getHistoryOperationPlace(index: Int): OperationPlace
 }

@@ -1,14 +1,12 @@
 package com.example.practic
 
-import kotlin.math.max
+class Bank {
 
-open class Bank {
-
-    var bank: MutableList<Account> = mutableListOf()
+    private var bank: MutableList<Account> = mutableListOf()
 
 
-    fun addAccaunt(accaunt: Account) {
-        bank.add(accaunt)
+    fun addAccount(account: Account) {
+        bank.add(account)
     }
 
     fun getTotalBalance(): Int {
